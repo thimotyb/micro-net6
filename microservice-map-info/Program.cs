@@ -1,4 +1,5 @@
 using GoogleMapInfo;
+using microservice_map_info.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<GoogleDistanceApi>();
+
+// Add for GRPC Support
+builder.Services.AddGrpc();
 
 var app = builder.Build();
 
@@ -25,5 +29,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGrpcService<DistanceInfoService>();
+});
 
 app.Run();

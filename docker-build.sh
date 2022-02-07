@@ -1,0 +1,1 @@
+ docker build -f microservice-map-info/Dockerfile --target final -t microservicemapinfo:dev .

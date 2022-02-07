@@ -1,7 +1,16 @@
 using GoogleMapInfo;
 using microservice_map_info.Services;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add Serilog support
+builder.Host.UseSerilog((ctx, lc) => lc
+    .WriteTo.Console()
+    .WriteTo.Seq("http://localhost:5341")
+    .ReadFrom.Configuration(ctx.Configuration));
+
+Serilog.Debugging.SelfLog.Enable(Console.Error);
 
 // Add services to the container.
 
@@ -16,6 +25,8 @@ builder.Services.AddTransient<GoogleDistanceApi>();
 builder.Services.AddGrpc();
 
 var app = builder.Build();
+
+app.UseSerilogRequestLogging();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

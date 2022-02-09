@@ -14,7 +14,7 @@ namespace microservice_map_info.Controllers
             _googleDistanceApi = googleDistanceApi;
         }
         [HttpGet]
-        public async Task<GoogleDistanceData[]> GetDistance(string originCity,
+        public async Task<GoogleDistanceData> GetDistance(string originCity,
         string destinationCity)
         {
             return await _googleDistanceApi.GetMapDistance(originCity, destinationCity);

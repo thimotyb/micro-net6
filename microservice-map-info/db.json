@@ -1,5 +1,5 @@
 {
-    "destinations": [
+    "destinations": 
         {
             "id": 1,
             "destination_addresses": [ "New York, NY, USA" ],
@@ -23,5 +23,5 @@
             ],
             "status": "OK"
         }
-    ]
+    
 }

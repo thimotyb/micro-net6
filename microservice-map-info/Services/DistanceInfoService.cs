@@ -18,7 +18,7 @@ namespace microservice_map_info.Services
         {
             var totalMiles = "0";
             var distanceData = await _googleDistanceApi.GetMapDistance(cities.OriginCity, cities.DestinationCity);
-            foreach (var distanceDataRow in distanceData[0].rows)
+            foreach (var distanceDataRow in distanceData.rows)
             {
                 foreach (var element in distanceDataRow.elements)
                 {

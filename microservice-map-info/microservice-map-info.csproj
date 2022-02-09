@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\distance.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.42.0" />
     <PackageReference Include="Grpc.Tools" Version="2.43.0">
       <PrivateAssets>all</PrivateAssets>
@@ -20,11 +24,9 @@
     <ProjectReference Include="..\GoogleMapInfo\GoogleMapInfo.csproj" />
   </ItemGroup>
 
+
 	<ItemGroup>
-		  <Protobuf Include="Protos\distance.proto" GrpcServices="Server" />
-	</ItemGroup>
-	<ItemGroup>
-		  <Folder Include="Protos\" />
+		  <Folder Include="Services\" />
 	</ItemGroup>
 
 </Project>

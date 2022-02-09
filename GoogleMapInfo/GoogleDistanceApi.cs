@@ -10,7 +10,7 @@ namespace GoogleMapInfo
         {
             _configuration = configuration;
         }
-        public async Task<GoogleDistanceData[]>
+        public async Task<GoogleDistanceData>
         GetMapDistance(string originCity, string destinationCity)
         {
             var apiKey = _configuration["googleDistanceApi:apiKey"];
@@ -23,7 +23,7 @@ namespace GoogleMapInfo
             response.EnsureSuccessStatusCode();
             await using var data = await response.Content.ReadAsStreamAsync();
             var distanceInfo = await
-            System.Text.Json.JsonSerializer.DeserializeAsync<GoogleDistanceData[]>(data);
+            System.Text.Json.JsonSerializer.DeserializeAsync<GoogleDistanceData>(data);
             return distanceInfo;
         }
     }

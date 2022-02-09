@@ -1,4 +1,6 @@
 ﻿using GoogleMapInfo;
+using Grpc.Core;
+using microservice_map_info.Protos;
 
 namespace microservice_map_info.Services
 {
@@ -26,6 +28,5 @@ namespace microservice_map_info.Services
             return new DistanceData { Miles = totalMiles };
         }
     }
-    {
-    }
+
 }

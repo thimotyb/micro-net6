@@ -19,7 +19,7 @@ namespace microservice_map_info.Controllers
             _logger.LogInformation("Starting Map Info Controller.");
         }
         [HttpGet]
-        public async Task<ActionResult<GoogleDistanceData[]>> GetDistance(string originCity,
+        public async Task<ActionResult<GoogleDistanceData>> GetDistance(string originCity,
         string destinationCity)
         {
             try

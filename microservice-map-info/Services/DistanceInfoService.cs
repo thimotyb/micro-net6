@@ -8,6 +8,7 @@ namespace microservice_map_info.Services
     {
         private readonly ILogger<DistanceInfoService> _logger;
         private readonly GoogleDistanceApi _googleDistanceApi;
+
         public DistanceInfoService(ILogger<DistanceInfoService> logger, GoogleDistanceApi googleDistanceApi)
         {
             _logger = logger;
